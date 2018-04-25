@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>各种操作cookie的方法</title>
+</head>
+<body>
+    <script>
+        // 编码：escape 解码：unescape 过期时间：expires
+        let cookie = {
+            set (key, value, expiresDay) { // key value 过期时间（天）
+                let exDate = new Date();
+                let toDay = exDate.getDate();
+                exDate.setDate(toDay + expiresDay);
+                exDate = exDate.toUTCString();
+                document.cookie = key + '=' + escape(value) + '; ' + (expiresDay ? 'expires=' + exDate + '; ' : '') + 'path=/';
+            },
+            get (key) { // 获取出来的是字符串，获取不到出来的是undefined
+                let cookie = document.cookie;
+                if (!cookie) {return undefined;}
+                let cookieArr = cookie.split("; ");
+                for (let i = 0; i < cookieArr.length; i++) {
+                    let item = cookieArr[i].split("=");
+                    if (item[0] === key) {
+                        return unescape(item[1]);
+                    }
+                }
+                return undefined;
+            },
+            remove (key) {
+                let exDate = new Date();
+                let yesterDay = exDate.getDate() - 1;
+                exDate.setDate(yesterDay);
+                exDate = exDate.toUTCString();
+                document.cookie = key + '=; expires=' + exDate + ';path=/';
+            }
+        }
+        cookie.set("msg", 'hello world!', 1);
+        cookie.set("a", '10', 3);
+        cookie.set("b", '5', 7);
+        cookie.set("c", undefined, 7);
+        console.log(cookie.get("msg"));
+        console.log(cookie.get("a"));
+        console.log(cookie.get("b"));
+        console.log(cookie.get("c"));
+        cookie.remove("c");
+        console.log(cookie.get("c"));
+        cookie.remove("b");
+        console.log(cookie.get("b"));
+        cookie.remove("z");
+        console.log(cookie.get("z"));
+    </script>
+</body>
+</html>

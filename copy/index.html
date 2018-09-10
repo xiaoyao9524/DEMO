@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>点击复制</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <p id="text">我把你当兄弟，你却要复制我？</p>
+    <input id="demoInput" value="">
+    <button id="btn">点我复制</button>
+  </div>
+
+  <script>
+    const textEl = document.querySelector('#text');
+    const inputEl = document.querySelector('#demoInput');
+    const btn = document.querySelector('#btn');
+
+    btn.addEventListener('click', function () {
+      inputEl.value = textEl.innerHTML + ' -----本文作者XXX'; // 处理复制的文本
+      inputEl.select();
+      if (document.execCommand('copy')) {
+        document.execCommand('copy');
+        console.log('复制成功');
+      }
+    })
+  </script>
+
+</body>
+
+</html>

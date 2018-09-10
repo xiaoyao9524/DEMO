@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>设置和获取剪切板文字内容</title>
+</head>
+
+<body>
+  <p>
+    近日，菜鸟发布了一份全国全国高校00后大学生“空手到”排名。排名显示，南方大学“空手到”现象胜过北方，云南、江苏、浙江、广东领先。其中，云南大学、湘潭大学和江南大学位列三甲，包裹单量日均单量近万。
+  </p>
+  <script>
+    document.addEventListener('copy', function (ev) {
+      let text = window.getSelection().toString();
+      text += '  ---本文作者XXX';
+      setCopyText(ev, text);
+      ev.preventDefault();
+    })
+    document.addEventListener('paste', function (ev) {
+      console.log('剪切板中的文字是：', getCopyText(ev));
+    });
+
+    function getCopyText(event) {
+      if (event.clipboardData) {
+        return event.clipboardData.getData("text/plain");
+      } else if (window.clipboardData) {
+        return window.clipboardData.getData("text");
+      }
+    }
+
+    function setCopyText(event, value) {
+      if (event.clipboardData) {
+        return event.clipboardData.setData("text/plain", value);
+      } else if (window.clipboardData) {
+        return window.clipboardData.setData("text", value);
+      }
+    };
+  </script>
+</body>
+
+</html>

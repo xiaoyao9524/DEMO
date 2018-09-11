@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取选中的文字</title>
+</head>
+
+<body>
+  <div id="text">9日，有网友在微博晒出一段视频，称在朝阳公园偶遇李小璐、甜馨。视频中，甜馨扎双马尾穿纱裙淑女范十足。随后，疑似李小璐朋友圈曝光，文中说甜馨央求自己买老奶奶的沙包，最后母女将老奶奶的沙包全部买完，李小璐感慨：“你的善良是我永远的骄傲”。</div>
+  <script>
+    // document.selection.createRange().text; // IE9以下使用
+
+    // window.getSelection().toString(); // 其他浏览器使用
+
+    document.getElementById('text').addEventListener('mouseup', function () {
+      console.log(getSelectText());
+    })
+    function getSelectText () {
+      return window.getSelection ? window.getSelection().toString() : document.selection.createRange().text;
+    }
+  </script>
+</body>
+
+</html>

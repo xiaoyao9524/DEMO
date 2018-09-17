@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>history</title>
+</head>
+<body>
+  <!--
+    window.history.pushState(data, url, path);
+    获取data:
+      1、window.history.state
+      2、popstate中的事件对象的'state'字段
+    可以触发'popstate'的情况
+      window.history.back();
+      window.history.go(-1);
+      注意：window.history.pushState和
+    获取上一页的地址:
+      document.referrer
+    可以获取的情况:
+      window.location.href = 'xxx'
+      点击a标签
+    不能获取的情况:
+      直接在浏览器地址栏输入并回车
+  -->
+  <h1>history</h1>
+  <button id="next">go a</button>
+  <button id="next2">go b</button>
+  <button id="back">history.back();</button>
+  <button id="back2">ghistory.go(-1);</button>
+  <button id="go1">ghistory.go(1);</button>
+  <script>
+      // window.addEventListener('popstate', function (ev) {
+      //   let rel = document.referrer;
+      //   console.log('上页地址为：', rel);
+      //   if (rel === 'http://192.168.199.143:5000/') {
+      //     window.location.href = '/b';
+      //   }
+      // })
+    </script>
+  <script>
+    // console.log('pushState传输的值：', window.history.state);
+    const next = document.querySelector('#next')
+    const next2 = document.querySelector('#next2')
+    const back = document.querySelector('#back')
+    const back2 = document.querySelector('#back2')
+    const go1 = document.querySelector('#go1')
+    next.onclick = function () {
+      window.history.pushState({foo: 'a'}, 'page 2', '/a');
+      console.log('pushState传输的值：', window.history.state);
+    }
+    next2.onclick = function () {
+      window.history.pushState({foo: 'b'}, 'page 3', '/b');
+      console.log('pushState传输的值：', window.history.state);
+    }
+    back.onclick = function () {
+      window.history.back();
+      console.log('pushState传输的值：', window.history.state);
+    }
+    back2.onclick = function () {
+      window.history.go(-1);
+      console.log('pushState传输的值：', window.history.state);
+    }
+    go1.onclick = function () {
+      window.history.go(1);
+      console.log('pushState传输的值：', window.history.state);
+    }
+    window.onpopstate = funcRef;
+    function funcRef (ev) {
+      // console.log('funcRef');
+      console.log('ev.state: ', ev.state);
+    }
+  </script>
+</body>
+</html>

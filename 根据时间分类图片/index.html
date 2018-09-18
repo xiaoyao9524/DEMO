@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      text-align: center;
+      table-layout: fixed;
+    }
+    #tab tbody img {
+      width: 100%;
+    }
+    #loadin {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,.8);
+    }
+    #loadin .loadin-box {
+      text-align: center;
+      height: 100%;
+      font-size: 30px;
+      line-height: 100vh;
+      color: #fff;
+    }
+  </style>
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/exif.js"></script>
+</head>
+<!-- Bush-dog:  2008:05:09 14:03:06-->
+<!-- dsc_09827: 2008:05:09 14:00:32 -->
+<!-- DSCN0614:  2008:05:08 14:54:46 -->
+
+<body>
+  <div>
+    <input type="file" multiple id="file-input">
+  </div>
+  <table id="tab" width="100%" border="1" align="center">
+    <thead>
+      <!-- 
+       , ;2018-08-17 15:28,2018-08-17 15:28;2018-08-17 23:35,2018-08-17 23:35;2018-08-18 07:30,2018-08-18 07:30;2018-08-18 10:10,
+       -->
+      <tr class="theader">
+        <td class="date-item" colspan="2">
+          <p>2018-08-16</p>
+          <p>13:30</p>
+          <p>2018-08-16</p>
+          <p>16:00</p>
+        </td>
+        <td class="date-item" colspan="2">
+          <p>2018-08-16</p>
+          <p>16:00</p>
+          <p>2018-08-16</p>
+          <p>17:48</p>
+        </td>
+        <td class="date-item" colspan="2">
+          <p>2018-08-16</p>
+          <p>17:48</p>
+          <p>2018-08-17</p>
+          <p>01:00</p>
+        </td>
+        <td class="date-item" colspan="2">
+          <p>2018-08-17</p>
+          <p>09:00</p>
+          <p>2018-08-17</p>
+          <p>09:00</p>
+        </td>
+        <td class="date-item" colspan="2">
+          <p>2018-08-17</p>
+          <p>11:56</p>
+          <p>2018-08-17</p>
+          <p>15:28</p>
+        </td>
+        <td class="date-other" colspan="2">
+          <p>其它</p>
+        </td>
+      </tr>
+      <tr class="tbody-row">
+          <td>计划</td>
+          <td>实际</td>
+          <td>计划</td>
+          <td>实际</td>
+          <td>计划</td>
+          <td>实际</td>
+          <td>计划</td>
+          <td>实际</td>
+        </tr>
+        <tr class="count">
+          <td>0</td>
+          <td class="item">0</td>
+          <td>0</td>
+          <td class="item">0</td>
+          <td>0</td>
+          <td class="item">0</td>
+          <td>0</td>
+          <td class="item">0</td>
+        </tr>
+    </thead>
+    <tbody>
+      <!-- <tr class="tbody-row">
+        <td colspan="2">
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+        </td>
+        <td colspan="2">
+          <img width="100%" src="./img/dsc_09827.jpg" alt="">
+          <p>2018-08-16</p>
+        </td>
+        <td colspan="2">
+          <img width="100%" src="./img/DSCN0614_small.jpg" alt="">
+          <p>2018-08-16</p>
+        </td>
+        <td colspan="2">
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+        </td>
+      </tr> -->
+      <!-- <tr class="tbody-row">
+        <td colspan="2">
+          <img width="100%" src="./img/Bush-dog.jpg" alt="">
+          <p>2018-08-16</p>
+        </td>
+        <td colspan="2">
+
+        </td>
+        <td colspan="2">
+          <img width="100%" src="./img/DSCN0614_small.jpg" alt="">
+          <p>2018-08-16</p>
+        </td>
+        <td colspan="2">
+
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <div id="loadin">
+    <div class="loadin-box">
+      正在读取...
+    </div>
+  </div>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

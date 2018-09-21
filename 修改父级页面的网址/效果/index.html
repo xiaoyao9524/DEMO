@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正常的首页</title>
+</head>
+
+<body>
+  <h1>正常的首页</h1>
+  <a href="./evil.html" target="_blank">去邪恶的导航</a>
+  <button onclick="goEvil()">去邪恶的导航</button>
+  <script>
+    function goEvil() {
+      console.log(1)
+      window.open('./evil.html', "_blank");
+    }
+  </script>
+</body>
+
+</html>

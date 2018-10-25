@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>平滑滚动</title>
+  <style>
+    body, h1 {
+      margin: 0;
+    }
+    body {
+      position: relative;
+      min-height: 200vh;
+    }
+    #head {
+      height: 80px;
+      background: #353535;
+      color: #fff;
+    }
+    .go-top {
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header id="head">
+    <h1>标题标题标题</h1>
+  </header>
+  <button class="go-top">去顶部</button>
+  <script>
+    let head = document.querySelector('#head')
+    let btn = document.querySelector('.go-top')
+
+    btn.addEventListener('click', function () {
+      head.scrollIntoView({
+        behavior: "smooth"
+      });
+    })
+  </script>
+</body>
+</html>

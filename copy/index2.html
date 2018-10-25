@@ -14,6 +14,7 @@
   </p>
   <script>
     document.addEventListener('copy', function (ev) {
+      console.log(ev.target)
       let text = window.getSelection().toString();
       text += '  ---本文作者XXX';
       setCopyText(ev, text);

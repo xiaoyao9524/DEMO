@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>格式化货币DEMO</title>
+</head>
+<body>
+  <script>
+    console.log(123456789.54321.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+  </script>
+</body>
+</html>

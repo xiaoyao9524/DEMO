@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>格式化货币DEMO</title>
+  <title>格式化各种数字DEMO</title>
 </head>
 <body>
   <script>
+    // 格式化货币格式
     console.log(123456789.54321.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+    // 格式化银行卡号码
+    console.log('6287868789878590876'.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 "));
   </script>
 </body>
 </html>
